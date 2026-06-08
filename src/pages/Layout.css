@@ -1,0 +1,8 @@
+.nav-link.actve{
+    color: antiquewhite;
+    border: 2px solid rgb(251, 226, 192);
+}
+.nav-link{
+    color: aliceblue;
+
+}
