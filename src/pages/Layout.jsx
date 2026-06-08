@@ -1,4 +1,4 @@
-import { NavLink, Link, Outlet, useNavigate } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 
 function Layout() {
     return (
@@ -6,22 +6,22 @@ function Layout() {
             <header>
                 <nav>
                     <NavLink to="/"
-                    className={({ isActive }) => ( isActive ? 'nav-link actve' : 'nav-link')}
+                    className={({ isActive }) => ( isActive ? 'nav-link active' : 'nav-link')}
                     end>
                         Главная
                     </NavLink>
                     <NavLink to="/services"
-                    className={({ isActive }) => ( isActive ? 'nav-link actve' : 'nav-link')}
+                    className={({ isActive }) => ( isActive ? 'nav-link active' : 'nav-link')}
                     >
                         Услуги
                     </NavLink>
                     <NavLink to="/about"
-                    className={({ isActive }) => ( isActive ? 'nav-link actve' : 'nav-link')}
+                    className={({ isActive }) => ( isActive ? 'nav-link active' : 'nav-link')}
                     >
                     О нас    
                     </NavLink>
                     <NavLink to="/contact"
-                    className={({ isActive }) => ( isActive ? 'nav-link actve' : 'nav-link')}
+                    className={({ isActive }) => ( isActive ? 'nav-link active' : 'nav-link')}
                     >
                     Контакты   
                     </NavLink>
