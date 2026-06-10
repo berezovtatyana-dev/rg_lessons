@@ -12,6 +12,14 @@ function Layout() {
                     end>
                         Главная
                     </NavLink>
+                    <NavLink to="/home"
+                    className={({ isActive }) => ( isActive ? 'nav-link active' : 'nav-link')}
+                    >
+                    Добро пожаловать!    
+                    </NavLink>
+                    <NavLink to="/contact"
+                    className={({ isActive }) => ( isActive ? 'nav-link active' : 'nav-link')}
+                    ></NavLink>
                     <NavLink to="/services"
                     className={({ isActive }) => ( isActive ? 'nav-link active' : 'nav-link')}
                     >

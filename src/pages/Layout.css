@@ -1,5 +1,5 @@
-.nav-link.actve{
-    background-color: antiquewhite;
+.nav-link.active{
+    background-color: hsl(34, 78%, 91%);
     border: 2px solid rgb(251, 226, 192);
 }
 .nav-link{

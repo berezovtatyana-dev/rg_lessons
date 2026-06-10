@@ -3,7 +3,7 @@ function Contact() {
         <div>
             <h1>Контакты</h1>
             <p>тел. + 7888888888</p>
-            <p>адрес: 111@mail.ru</p>
+            <p>адрес: rg@mail.ru</p>
         </div>
     );
 }
