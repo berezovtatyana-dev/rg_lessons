@@ -9,9 +9,9 @@ function ServiceDetail() {
 
     return (
         <div>
-            <h1>Описание услуги</h1>
+            <h2>Описание услуги</h2>
             <div>
-                <h1>{service.title}</h1>
+            <h2 style={{color: 'salmon', textShadow: '1px 1px black'}}>{service.title}</h2>
                 <span>Категория: {service.category}</span>
             </div>
             
@@ -21,7 +21,7 @@ function ServiceDetail() {
                     <p>{service.description}</p>
                 </div>
             </div>
-            <Link to="/services">Вернуться к списку услуг</Link>
+            <Link style={{color: "blue", fontStyle: 'italic', fontSize: '15px'}} to="/services">Вернуться к списку услуг</Link>
         </div>
     );
 }

@@ -28,14 +28,16 @@ function Services() {
         <div className="services">
             <h1>Наши услуги</h1>
             <div className="filters">
+                <label style={{fontSize: '18px', color: 'black', display: 'flex'}}>Для быстрого поиска начните вводить название</label>
                 <input type="text"
                 placeholder="Введите название"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                  />
             </div>
+            <p style={{fontSize: '18px', color: 'black'}}>Или ниже выберите категорию</p>
             <div className="category-filters">
-                    {categories.map(category => (
+                {categories.map(category => (
                         <button
                             key={category}
                             className={`category-btn ${activeCategory === category ? 'active' : ''}`}
