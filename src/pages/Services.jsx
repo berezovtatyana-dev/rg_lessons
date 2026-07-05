@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import './Services.css';
 
-const servicesData = [
+export const servicesData = [
     { id: 1, title: 'Групповые занятия по художественной гимнастике', category: 'Художественная гимнастика', description: 'Занятия групп спортивно-оздоровительного этапа с элементами художественной гимнастики' },
     { id: 2, title: 'Индивидуальные занятия по художественной гимнастике', category: 'Художественная гимнастика', description: 'Тренировочные занятия по художественной гимнастике (индивидуальные или в минигруппах до 3-х человек). Индивидуальные занятия позволяют уделить внимание отдельному ребенку, отработать наиболее значимые элементы' },
     { id: 3, title: 'Групповые занятия по хореографии', category: 'Хореография', description: 'Занятия направлены на формирование навыков исполнения танца, приобретение знаний в области хореографического искусства' },
@@ -15,33 +15,48 @@ const categories = ['Все', 'Художественная гимнастика
 
 function Services() {
 
-    const [searchCategory, setSearchCategory] = useState('');
+    const [searchQuery, setSearchQuery] = useState('');
     const [activeCategory, setActiveCategory] = useState('Все');
+
     const filteredServices = servicesData.filter(service => {
         const matchesCategory = activeCategory === 'Все' || service.category === activeCategory;
-        const matchesSearch = service.title.toLowerCase().includes(searchCategory.toLowerCase());
+        const matchesSearch = service.title.toLowerCase().includes(searchQuery.toLowerCase());
         return matchesCategory && matchesSearch;
+    });
 
-        return ( 
+    return ( 
         <div className="services">
             <h1>Наши услуги</h1>
             <div className="filters">
                 <input type="text"
                 placeholder="Введите название"
-                value={searchCategory}
-                onChange={(e) => setSearchCategory(e.target.value)}
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
                  />
+            </div>
+            <div className="category-filters">
+                    {categories.map(category => (
+                        <button
+                            key={category}
+                            className={`category-btn ${activeCategory === category ? 'active' : ''}`}
+                            onClick={() => setActiveCategory(category)}
+                        >
+                            {category}
+                        </button>
+                    ))}
             </div>
             <div className="listService">
                 {filteredServices.length > 0 ? (
                     filteredServices.map(service => (
                         <div key={service.id} className="service-card">
-                            <Link to={`/services/${service.id}`} className="service-link" />
+                            <Link to={`/services/${service.id}`} className="service-link">
+                                <h3>{service.title}</h3>
+                            </Link>
                         </div>
                     ))
                 ) : (
                     <div>
-                        NONE
+                        Услуги не найдены
                     </div>
 
                 )}
@@ -50,7 +65,7 @@ function Services() {
         </div>
     );
 
-    });
+    
 }
 
 export default Services;

@@ -12,16 +12,14 @@ createRoot(document.getElementById('root')).render(
   <Router>
       <Routes>
         <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          {/* <Route path="/home" element={<Home />} /> */}
           <Route path="/about" element={<About />} />
-          <Route path="/home" element={<Home />} />
           <Route path="/contact" element={<Contact />} />
-        </Route>
-        <Route path="/layout" element={<Layout />} />
-        <Route path='*' element={<NotFound />} />
-        <Route path="/" element={<ServiceDetail />}>
-          <Route path="/servicesDetail" element={<ServiceDetail />} />
           <Route path="/services" element={<Services />} />
+          <Route path="services/:id" element={<ServiceDetail />} />
         </Route>
+        <Route path='*' element={<NotFound />} />
       </Routes>
     </Router>
 );
